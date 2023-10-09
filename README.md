@@ -13,12 +13,10 @@ Parameters:
 | NugetToolVersion | Version of NuGet.exe to install | String | | | Optional | A version or version range that specifies the NuGet version to make available on the path. Use x as a wildcard |
 | checkLatest | Always check for new versions | Boolean | false | true / false | Optional | When this boolean is set to true, the task always checks for and downloads the latest available version of NuGet.exe that satisfies the version spec.  |
 
-These parameters provide multiple use case options for the setvariables templates pipeline, enable/disable flags for the utilization of different templates as per the requirements.
+These parameters provide multiple use case options for the dotnet templates pipeline, enable/disable flags for the utilization of different templates as per the requirements.
 
 
 ## Use Cases
-
-### Direct use of a template
 
 You can directly call a particular template as per the requirement. for example: 
 
@@ -34,9 +32,9 @@ You can directly call a particular template as per the requirement. for example:
 
   steps:
   # passing the parameters
-  - template: 
+  - template: Install_Nuget_Tool.yml@Template
         parameters:
-          
+          NugetToolVersion: ${{ parameters.NugetToolVersion }}
 
         
   
